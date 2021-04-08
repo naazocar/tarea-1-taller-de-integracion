@@ -1,0 +1,26 @@
+.column{
+  width: 50%;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.row {
+  display: flex;
+  height: 100%;
+}
+
+.link-inicio {
+  color: black;
+  text-decoration: none;
+}
+
+.div-inicio {
+  padding-left: 30px;
+  text-decoration: none;
+}
+
+.App {
+  text-decoration: none;
+}

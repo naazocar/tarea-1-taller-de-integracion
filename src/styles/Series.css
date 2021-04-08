@@ -1,0 +1,42 @@
+img {
+    width: 100%;
+    padding-left: 15px;
+    height: 350px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color:darkcyan;
+}
+
+.image-container:hover .overlay {
+    opacity: 0.9;
+}
+
+.text {
+    color: white;
+    font-size: 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.seasons-container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}

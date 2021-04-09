@@ -1,28 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { useParams } from "react-router-dom";
 import CharacterCard from './CharacterCard';
 
-export default function Series() {
-    const [ CharacterList, setCharacterList ] = useState ([]);
+
+export default function BBCharacters() {
+    var {character} = useParams();
+    const [Char, setChar] = useState([]);
+    const [Quote, setQuote] = useState([]);
 
     useEffect(() => {
         axios
-            .get('https://tarea-1-breaking-bad.herokuapp.com/api/characters')
+            .get(`https://tarea-1-breaking-bad.herokuapp.com/api/characters?name=${character.replace(' ', '+')}`)
             .then(response => {
-                console.log(response);
-                setCharacterList(response.data);
+                setChar(response.data);
             })
             .catch(err => {
                 console.log(err)
-            })
-    }, [])
+            });
+    }, [character]);
 
-    return(
-        <section className='characters-list'>
-            <h2>Personajes</h2>
-            {CharacterList.map((chars, id) => {
-                return <CharacterCard key={id} chars={chars} />
-            })}
-        </section>
+    useEffect(() => {
+        axios
+            .get(`https://tarea-1-breaking-bad.herokuapp.com/api/quote?author=${character.replace(' ', '+')}`)
+            .then(response => {
+                setQuote(response.data);
+            })
+            .catch(err => {
+                console.log(err)
+            });
+    }, [character]);
+
+    if (Char[0]) {
+        return (
+            <CharacterCard Chars={Char[0]} Quotes={Quote} />
+        );
+    }
+    return (
+        <h2>Cargando...</h2>
     )
 }

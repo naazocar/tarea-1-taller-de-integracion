@@ -1,5 +1,11 @@
 img {
     position: relative;
     left: 0.5vh;
-    width: 300px;
+    width: 350px;
+}
+
+p {
+    margin-left: 20px;
+    line-height: 1.1;
+    margin-bottom: 1px;
 }

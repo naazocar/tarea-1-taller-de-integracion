@@ -1,5 +1,5 @@
 img {
-    width: 100%;
+    width: 60%;
     padding-left: 15px;
     height: 350px;
 }
@@ -39,4 +39,12 @@ img {
     display: grid;
     justify-content: center;
     align-content: center;
+}
+
+h1 {
+    margin-left: 40px;
+}
+
+h4 {
+    margin-left: 20px;
 }

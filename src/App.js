@@ -5,8 +5,12 @@ import axios from 'axios';
 import BB from './components/BB';
 import BCS from './components/BCS';
 import Image from './components/SerieImage';
-import BBEpisodes from './components/BBEpisodes';
-import BCSEpisodes from './components/BCSEpisodes';
+import BBSeason from './components/BBSeason';
+import BCSSeason from './components/BCSSeason';
+import BBEpisode from './components/BBEpisode';
+import BCSEpisode from './components/BCSEpisode';
+import Characters from './components/Characters';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,17 +31,32 @@ function App() {
             })
     }, [])
 
-    const [ BCSList, setBCSList ] = useState ([]);
+  const [ BCSList, setBCSList ] = useState ([]);
     useEffect(() => {
         axios
             .get('https://tarea-1-breaking-bad.herokuapp.com/api/episodes?series=Better+Call+Saul')
             .then(response => {
                 setBCSList(response.data);
+                console.log(response.data)
             })
             .catch(err => {
                 console.log(err)
             })
     }, [])
+
+
+  /*
+  const [ BCSChars, setBCSChars ] = useState ([]);
+    useEffect(() => {
+        axios
+            .get('https://tarea-1-breaking-bad.herokuapp.com/api/episodes?series=Better+Call+Saul')
+            .then(response => {
+                setBCSChars(response.data);
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, []) */
   
   return (
     <Router>
@@ -59,14 +78,29 @@ function App() {
               </div>
             </div>
           </Route>
-          <Route path={"/breaking-bad/temporada-:season"}>
+          <Route path={"/breaking-bad/temporada-:season/"}>
             <div>
-              <BBEpisodes BBList={BBList}/>
+              <BBSeason BBList={BBList} key={'bbseason'} />
+            </div>
+          </Route>
+          <Route path={"/breaking-bad/capitulo-:episode"}>
+            <div>
+              <BBEpisode BBList={BBList} key={'bbepisode'} />
             </div>
           </Route>
           <Route path={"/better-call-saul/temporada-:season"}>
             <div>
-              <BCSEpisodes BCSList={BCSList}/>
+              <BCSSeason BCSList={BCSList} key={'bcsseason'} />
+            </div>
+          </Route>
+          <Route path={"/better-call-saul/capitulo-:episode"}>
+            <div>
+              <BCSEpisode BCSList={BCSList} key={'bcsepisode'} />
+            </div>
+          </Route>
+          <Route path={"/personajes/:character"}>
+            <div>
+              <Characters key={'character'} />
             </div>
           </Route>
         </Switch>

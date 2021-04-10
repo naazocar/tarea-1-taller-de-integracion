@@ -53,8 +53,11 @@
   align-content: right;
   padding-top: 30px;
   padding-left: 60px;
+  padding-right: 50px;
 }
 
 .titulo {
   position: absolute;
+  width: 100%;
+  justify-content: left;
 }

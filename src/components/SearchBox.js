@@ -31,13 +31,21 @@ export default function SearchBox() {
         ExecuteRequest(0);
     }, [])
 
+    function handleChange(value) {
+        setSearch(value);
+        if (value !== '') {
+            setDisplay(true);
+        } else {
+            setDisplay(false);
+        }
+    }
+
     return (
         <div className='dropdown'>
             <input id='auto' 
             placeholder='Buscar...' 
-            onClick={() => setDisplay(!display)} 
             value={search}
-            onChange={event => {setSearch(event.target.value); setDisplay(true)}} />
+            onChange={event => handleChange(event.target.value)} />
                 {display && (
                     <div className='dropdown'>
                         {options.filter((name) => name.toLowerCase().indexOf(search.toLowerCase()) > - 1).map((value, i) => {

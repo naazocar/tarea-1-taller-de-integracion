@@ -49,7 +49,7 @@ function App() {
         <div className="row">
           <div className='titulo'>
             <Link to='/home' className="link-inicio">
-              <h1 className='div-inicio'> Tarea 1 </h1>
+              <h1 className='div-inicio'> Home </h1>
             </Link>
           </div>
           <div className='barra'>

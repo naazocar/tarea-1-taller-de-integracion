@@ -46,7 +46,7 @@ export default function CharacterCard(props) {
                 <p><b>Quotes:</b> {
                         keys.map((value) => {
                             return (
-                                <p>Quote ID {quotes[value].quote_id}: {quotes[value].quote}</p>
+                                <p>"{quotes[value].quote}" - <b>{quotes[value].series}</b></p>
                             )
                         })
                     }

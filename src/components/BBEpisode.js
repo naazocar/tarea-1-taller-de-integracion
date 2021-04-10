@@ -6,7 +6,6 @@ import { Link, useParams } from "react-router-dom";
 export default function BBSeason(props) {
     const BBList = props.BBList;
     var {episode} = useParams();
-    console.log(BBList);
 
     var chapter = {};
     for (var key in BBList) {
@@ -14,7 +13,6 @@ export default function BBSeason(props) {
             chapter = BBList[key]
         } 
     };
-    console.log(chapter);
 
     var dateOptions = {
         year: 'numeric',

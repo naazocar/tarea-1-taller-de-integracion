@@ -7,7 +7,7 @@ export default function BCSSeason(props) {
     const BCSList = props.BCSList;
     var {episode} = useParams();
     episode = parseInt(episode) + 62;
-    console.log(episode);
+
 
     var chapter = {};
     for (var key in BCSList) {
